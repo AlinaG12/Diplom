@@ -27,8 +27,8 @@
   - Статистика работы склада
 
 ## Диаграммы
--  — редактируемая диаграмма базы данных
--  <br><img height="200" alt="Структура приложения" src="https://github.com/AlinaG12/Diplom/blob/main/mermaid-ai-diagram-2025-10-09-082933.png" />
+**Структура приложения** 
+-  <br><img height="500" alt="Структура приложения" src="https://github.com/AlinaG12/Diplom/blob/main/mermaid-ai-diagram-2025-10-09-082933.png" />
 
 ## База данных
 - Таблицы и скрипты для создания базы данных:
