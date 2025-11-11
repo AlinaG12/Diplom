@@ -28,7 +28,7 @@
 
 ## Диаграммы
 **Структура приложения** 
--  <br><img height="500" alt="Структура приложения" src="https://github.com/AlinaG12/Diplom/blob/main/mermaid-ai-diagram-2025-10-09-082933.png" />
+-  <br><img height="500" alt="Структура приложения" src="https://github.com/AlinaG12/Diplom/blob/main/mermaid-ai-diagram-2025-11-11_11-01.png" />
 **Use Case**
 - <br><img height="500" alt="Use Case" src="https://github.com/AlinaG12/Diplom/blob/main/2025-10-21_11-24.png" />
 
