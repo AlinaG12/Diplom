@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISP LOGISTIC | Фулфилмент для маркетплейсов и интернет-магазинов</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1A2C3E;
+            background-color: #fff;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        .header {
+            background: #fff;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            flex-wrap: wrap;
+        }
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: #0B3B3A;
+            letter-spacing: -0.5px;
+        }
+        .logo span {
+            font-size: 12px;
+            color: #6C7A89;
+            display: block;
+        }
+        .nav {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .nav a {
+            text-decoration: none;
+            color: #2C3E50;
+            font-weight: 500;
+            transition: 0.2s;
+            font-size: 15px;
+        }
+        .nav a:hover {
+            color: #0B3B3A;
+        }
+        .phone-header {
+            font-weight: 700;
+            font-size: 18px;
+            color: #0B3B3A;
+            margin-left: 20px;
+        }
+        .phone-header i {
+            margin-right: 6px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #F5F9FF 0%, #EAF3F0 100%);
+            padding: 60px 0;
+        }
+        .hero-grid {
+            display: flex;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+        .hero-content {
+            flex: 1;
+        }
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #0B3B3A;
+        }
+        .hero-content h1 span {
+            color: #2C8E6E;
+        }
+        .hero-content p {
+            font-size: 18px;
+            color: #4A627A;
+            margin-bottom: 24px;
+        }
+        .features-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin: 24px 0;
+        }
+        .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            list-style: none;
+            background: white;
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+        .marketplace-badge {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .marketplace-badge span {
+            background: #fff;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 14px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .hero-image {
+            flex: 1;
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: 0 20px 35px -15px rgba(0,0,0,0.2);
+            height: 380px;
+        }
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .hero-image img:hover {
+            transform: scale(1.02);
+        }
+        .btn-primary {
+            background: #0B3B3A;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background: #1f6e5c;
+        }
+
+        /* Section Common */
+        section {
+            padding: 80px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #0B3B3A;
+        }
+        .section-sub {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 48px;
+            color: #5A6E7F;
+            font-size: 18px;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+        .service-card {
+            background: #F9FCFB;
+            padding: 32px;
+            border-radius: 24px;
+            transition: 0.2s;
+            border: 1px solid #E4EDEA;
+        }
+        .service-card i {
+            font-size: 40px;
+            color: #2C8E6E;
+            margin-bottom: 20px;
+        }
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+        .service-card p {
+            color: #5A6E7F;
+        }
+        .service-link {
+            margin-top: 20px;
+            display: inline-block;
+            color: #0B3B3A;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .service-link:hover {
+            color: #2C8E6E;
+            transform: translateX(5px);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 32px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            animation: slideIn 0.3s ease;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        .modal-header {
+            padding: 24px 28px;
+            background: linear-gradient(135deg, #0B3B3A 0%, #1A5A4F 100%);
+            color: white;
+            border-radius: 32px 32px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+        }
+        .close {
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+            line-height: 1;
+        }
+        .close:hover {
+            color: #ddd;
+            transform: scale(1.1);
+        }
+        .modal-body {
+            padding: 32px 28px;
+        }
+        .modal-body h3 {
+            color: #0B3B3A;
+            margin-bottom: 16px;
+            font-size: 20px;
+        }
+        .modal-body p {
+            color: #4A627A;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        .modal-body ul {
+            margin: 16px 0 0 20px;
+            color: #4A627A;
+        }
+        .modal-body li {
+            margin: 8px 0;
+        }
+        .modal-footer {
+            padding: 20px 28px;
+            border-top: 1px solid #E4EDEA;
+            text-align: right;
+        }
+        .modal-btn {
+            background: #0B3B3A;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 40px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .modal-btn:hover {
+            background: #2C8E6E;
+        }
+
+        /* Floating Telegram Button */
+        .telegram-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .telegram-float a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, #0B3B3A 0%, #2C8E6E 100%);
+            border-radius: 50%;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .telegram-float a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.3);
+        }
+        .telegram-float i {
+            font-size: 32px;
+            color: white;
+        }
+        .telegram-float .tooltip {
+            position: absolute;
+            right: 80px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #0B3B3A;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            pointer-events: none;
+        }
+        .telegram-float .tooltip::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent transparent #0B3B3A;
+        }
+        .telegram-float:hover .tooltip {
+            opacity: 1;
+            visibility: visible;
+            right: 90px;
+        }
+
+        /* For Whom */
+        .for-whom {
+            background: #F5F9FF;
+        }
+        .whom-grid {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .whom-list {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        .whom-list li {
+            list-style: none;
+            padding: 12px 20px;
+            background: white;
+            border-radius: 50px;
+            font-weight: 500;
+            text-align: center;
+        }
+        .categories {
+            flex: 1;
+            background: #EAF3F0;
+            padding: 32px;
+            border-radius: 28px;
+        }
+
+        /* Why Us */
+        .why-grid {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        .why-card {
+            flex: 1;
+            background: #F9FCFB;
+            padding: 32px;
+            border-radius: 24px;
+            text-align: center;
+        }
+        .why-card h3 {
+            font-size: 42px;
+            color: #2C8E6E;
+            margin-bottom: 12px;
+        }
+
+        /* Tariffs */
+        .tariff-grid {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .tariff-card {
+            background: #F9FCFB;
+            border-radius: 28px;
+            padding: 32px;
+            flex: 1;
+            min-width: 280px;
+            text-align: center;
+        }
+        .price {
+            font-size: 36px;
+            font-weight: 800;
+            color: #0B3B3A;
+            margin: 16px 0;
+        }
+
+        /* Contact Form */
+        .contact-block {
+            background: linear-gradient(135deg, #0B3B3A 0%, #1A5A4F 100%);
+            color: white;
+            border-radius: 48px;
+            padding: 48px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+        }
+        .contact-left {
+            flex: 1;
+        }
+        .contact-right {
+            flex: 1;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 60px;
+            border: none;
+            font-size: 16px;
+        }
+        .checkbox {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            margin: 16px 0;
+        }
+        .btn-white {
+            background: white;
+            color: #0B3B3A;
+            padding: 14px 32px;
+            border-radius: 40px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        footer {
+            background: #0F2C2B;
+            color: #B0C4C0;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            .section-title {
+                font-size: 28px;
+            }
+            .contact-block {
+                padding: 32px;
+            }
+            .hero-image {
+                height: 250px;
+            }
+            .modal-content {
+                margin: 15% auto;
+                width: 95%;
+            }
+            .modal-header h2 {
+                font-size: 20px;
+            }
+            .telegram-float {
+                bottom: 20px;
+                right: 20px;
+            }
+            .telegram-float a {
+                width: 55px;
+                height: 55px;
+            }
+            .telegram-float i {
+                font-size: 28px;
+            }
+            .telegram-float .tooltip {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-inner">
+        <div class="logo">
+            <h1>ISP LOGISTIC</h1>
+            <span>фулфилмент «под ключ»</span>
+        </div>
+        <div class="nav">
+            <a href="#services">УСЛУГИ</a>
+            <a href="#forwhom">КОМУ И ЗАЧЕМ</a>
+            <a href="#tariffs">ТАРИФЫ</a>
+            <a href="#reviews">ОТЗЫВЫ</a>
+            <a href="#faq">ЧАСТЫЕ ВОПРОСЫ</a>
+            <a href="#contact">КОНТАКТЫ</a>
+            <div class="phone-header">
+                <i class="fas fa-phone-alt"></i> 8 (917) 520-61-41
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero с фото склада -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h1>ФУЛФИЛМЕНТ <span>«ПОД КЛЮЧ»</span><br>для интернет-магазинов и маркетплейсов</h1>
+                <p>Работаем по моделям FBS, FBO, DBS и B2B. Учитываем специфику вашего товара.</p>
+                <ul class="features-list">
+                    <li><i class="fas fa-check-circle" style="color:#2C8E6E;"></i> Гарантируем качество</li>
+                    <li><i class="fas fa-check-circle" style="color:#2C8E6E;"></i> Берем всю рутину на себя</li>
+                    <li><i class="fas fa-check-circle" style="color:#2C8E6E;"></i> Быстро обрабатываем и собираем</li>
+                    <li><i class="fas fa-check-circle" style="color:#2C8E6E;"></i> Обладаем гибкостью</li>
+                </ul>
+                <div class="marketplace-badge">
+                    <span>Wildberries</span>
+                    <span>Ozon</span>
+                    <span>Яндекс.Маркет</span>
+                </div>
+                <div style="margin-top: 32px;">
+                    <a href="#contact" class="btn-primary">Рассчитать стоимость</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://avatars.mds.yandex.net/get-altay/14215987/2a00000194ac7fbe32107b26c5b7f3e3bc0d/orig" 
+                     alt="Современный складской комплекс ISP LOGISTIC"
+                     onerror="this.src='https://images.pexels.com/photos/4483610/pexels-photo-4483610.jpeg?auto=compress&cs=tinysrgb&w=600'; this.onerror=null;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Услуги для техники и склада для Вашего опыта</h2>
+            <p class="section-sub">Вы продаете, МЫ помогаем</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Интерактивная система учета заказов</h3>
+                    <p>Контроль на всех этапах, онлайн-отслеживание и аналитика.</p>
+                    <a class="service-link" onclick="openModal('modal1')">Подробнее →</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-database"></i>
+                    <h3>Современная WMS-система</h3>
+                    <p>Автоматизация склада, точный учет и быстрая обработка.</p>
+                    <a class="service-link" onclick="openModal('modal2')">Подробнее →</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-microscope"></i>
+                    <h3>Предпродажная подготовка ОТК</h3>
+                    <p>Контроль качества, проверка брака и комплектации.</p>
+                    <a class="service-link" onclick="openModal('modal3')">Подробнее →</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-box"></i>
+                    <h3>Упаковка товара</h3>
+                    <p>Индивидуальная, брендированная или стандартная упаковка.</p>
+                    <a class="service-link" onclick="openModal('modal4')">Подробнее →</a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tags"></i>
+                    <h3>Маркировка / Стикеровка</h3>
+                    <p>Нанесение штрихкодов, маркировка в соответствии с требованиями.</p>
+                    <a class="service-link" onclick="openModal('modal5')">Подробнее →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Модальные окна -->
+    <!-- Модальное окно 1: Интерактивная система учета -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-chart-line"></i> Интерактивная система учета заказов</h2>
+                <span class="close" onclick="closeModal('modal1')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h3>Полный контроль на всех этапах</h3>
+                <p>Наша интерактивная система учета позволяет вам в реальном времени отслеживать статус каждого заказа — от приема на склад до передачи в доставку.</p>
+                <h3>Что вы получаете:</h3>
+                <ul>
+                    <li>📊 Онлайн-дашборд с аналитикой по продажам и остаткам</li>
+                    <li>🔄 Автоматическое обновление статусов заказов</li>
+                    <li>📱 Доступ через личный кабинет 24/7</li>
+                    <li>📈 Отчеты по ключевым метрикам: время обработки, процент брака, точность сборки</li>
+                    <li>🔔 Уведомления о критических остатках и задержках</li>
+                </ul>
+                <p style="margin-top: 16px;">Система интегрируется с Wildberries, Ozon, Яндекс.Маркет и вашей CRM.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn" onclick="closeModal('modal1')">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно 2: WMS-система -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-database"></i> Современная WMS-система</h2>
+                <span class="close" onclick="closeModal('modal2')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h3>Автоматизация складских процессов</h3>
+                <p>WMS (Warehouse Management System) — это мозг нашего склада. Система управляет всеми операциями: от приемки до отгрузки.</p>
+                <h3>Возможности системы:</h3>
+                <ul>
+                    <li>🏷️ Адресное хранение — точное место каждого товара</li>
+                    <li>📱 Сканирование штрихкодов для исключения ошибок</li>
+                    <li>🚀 Оптимизация маршрутов сборщиков — сокращение времени обработки на 30%</li>
+                    <li>📊 Управление сезонными остатками и резервами</li>
+                    <li>🔄 Интеграция с 1С, МойСклад и маркетплейсами</li>
+                </ul>
+                <p>Благодаря WMS мы обрабатываем до 5000 заказов в день с точностью 99,9%.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn" onclick="closeModal('modal2')">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно 3: ОТК -->
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-microscope"></i> Предпродажная подготовка ОТК</h2>
+                <span class="close" onclick="closeModal('modal3')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h3>Контроль качества на входе и выходе</h3>
+                <p>Отдел технического контроля (ОТК) проверяет каждый товар перед отправкой клиенту.</p>
+                <h3>Что входит в подготовку:</h3>
+                <ul>
+                    <li>✅ Входной контроль — проверка товара при поступлении на склад</li>
+                    <li>🔍 Проверка комплектации и отсутствия брака</li>
+                    <li>⚡ Тестирование электроники (при необходимости)</li>
+                    <li>📸 Фотофиксация товаров с дефектами</li>
+                    <li>🔄 Возврат брака поставщику по вашему запросу</li>
+                </ul>
+                <p>Мы гарантируем, что покупатель получит товар идеального качества, что снижает процент возвратов до минимума.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn" onclick="closeModal('modal3')">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно 4: Упаковка -->
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-box"></i> Упаковка товара</h2>
+                <span class="close" onclick="closeModal('modal4')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h3>Правильная упаковка — залог сохранности</h3>
+                <p>Мы предлагаем несколько вариантов упаковки в зависимости от типа товара и ваших пожеланий.</p>
+                <h3>Варианты упаковки:</h3>
+                <ul>
+                    <li>📦 Стандартная — коробка/пакет, пузырчатая пленка, скотч</li>
+                    <li>🎨 Брендированная — с логотипом вашей компании (разработка дизайна)</li>
+                    <li>🛡️ Защитная — дополнительная амортизация для хрупких товаров</li>
+                    <li>💧 Влагозащита — для товаров, чувствительных к влаге</li>
+                    <li>🎁 Подарочная — эстетичная упаковка для премиум-сегмента</li>
+                </ul>
+                <p>Стоимость упаковки зависит от выбранного типа и объема заказа. Рассчитаем индивидуально!</p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn" onclick="closeModal('modal4')">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно 5: Маркировка -->
+    <div id="modal5" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-tags"></i> Маркировка / Стикеровка</h2>
+                <span class="close" onclick="closeModal('modal5')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <h3>Соответствие требованиям маркетплейсов</h3>
+                <p>Наносим маркировку в соответствии с требованиями Wildberries, Ozon, а также законодательством РФ.</p>
+                <h3>Услуги по маркировке:</h3>
+                <ul>
+                    <li>🏷️ Нанесение штрихкодов (EAN, UPC, Code 128)</li>
+                    <li>📋 Маркировка "Честный ЗНАК" для товаров под контролем</li>
+                    <li>🎯 Стикеровка ярлыками Wildberries и Ozon</li>
+                    <li>🔢 Печать этикеток по вашим макетам</li>
+                    <li>📦 Оклейка коробов транспортными этикетками</li>
+                </ul>
+                <p>Мы используем профессиональное оборудование для печати этикеток, что гарантирует читаемость и долговечность маркировки.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn" onclick="closeModal('modal5')">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Кому подходит -->
+    <section id="forwhom" class="for-whom">
+        <div class="container">
+            <h2 class="section-title">Для кого подходит</h2>
+            <div class="whom-grid">
+                <ul class="whom-list">
+                    <li>Производителям товаров</li>
+                    <li>Стартапам и новым магазинам</li>
+                    <li>Поставщикам для маркетплейсов</li>
+                    <li>Оптовикам</li>
+                    <li>Рознице</li>
+                    <li>Интернет-магазинам</li>
+                </ul>
+                <div class="categories">
+                    <h3 style="margin-bottom: 16px;">Какие категории товаров</h3>
+                    <p>Электроника, одежда, товары для дома, косметика, детские товары, автозапчасти, DIY и любые другие категории — работаем с любой спецификой.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Почему мы -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Почему стоит работать с ИСП ЛОГИСТИК?</h2>
+            <p class="section-sub">Убедитесь в качестве нашего сервиса лично</p>
+            <div class="why-grid">
+                <div class="why-card">
+                    <h3>Всё включено</h3>
+                    <p>Вам не нужно сотрудничать с несколькими подрядчиками. Всё, что вам нужно, уже у нас.</p>
+                </div>
+                <div class="why-card">
+                    <h3>500 000+</h3>
+                    <p>Успешно выполненных заказов. Возникла ошибка — решим её за свой счёт.</p>
+                </div>
+                <div class="why-card">
+                    <h3>Качество</h3>
+                    <p>Индивидуальный подход к каждому клиенту и пунктуальность.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#contact" class="btn-primary">Оставить заявку</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Тарифы -->
+    <section id="tariffs" style="background: #F5F9FF;">
+        <div class="container">
+            <h2 class="section-title">Тарифы для торговли на маркетплейсах</h2>
+            <p class="section-sub">Мы исключили все скрытые комиссии и сделали максимально простую формулу расчета. Нами удобно и прозрачно</p>
+            <div class="tariff-grid">
+                <div class="tariff-card">
+                    <h3>Разгрузка/отгрузка ручная</h3>
+                    <p>Ручная разгрузка товара в навал — стоимость за короб, габариты которого не превышают расчетного веса не более 35 кг.</p>
+                    <div class="price">от 15 ₽/шт</div>
+                    <a href="#contact" class="btn-primary" style="background:#2C8E6E;">Рассчитать</a>
+                </div>
+                <div class="tariff-card">
+                    <h3>Разгрузка/отгрузка паллетная</h3>
+                    <p>Разгрузка паллетная средствами механизации. Быстро и аккуратно.</p>
+                    <div class="price">от 250 ₽/паллета</div>
+                    <a href="#contact" class="btn-primary" style="background:#2C8E6E;">Рассчитать</a>
+                </div>
+                <div class="tariff-card">
+                    <h3>Комплектация заказа</h3>
+                    <p>Сборка, упаковка, маркировка — индивидуальный расчет под ваш объем.</p>
+                    <div class="price">от 25 ₽/заказ</div>
+                    <a href="#contact" class="btn-primary" style="background:#2C8E6E;">Рассчитать</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section id="reviews">
+        <div class="container">
+            <h2 class="section-title">Отзывы клиентов</h2>
+            <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px,1fr));">
+                <div class="service-card">
+                    <i class="fas fa-star" style="color: #FFB800;"></i><i class="fas fa-star" style="color: #FFB800;"></i><i class="fas fa-star" style="color: #FFB800;"></i><i class="fas fa-star" style="color: #FFB800;"></i><i class="fas fa-star" style="color: #FFB800;"></i>
+                    <p style="margin-top: 16px;">“Отличный сервис, быстрая обработка заказов. Рекомендую!”</p>
+                    <h4>— Мария, интернет-магазин одежды</h4>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-star" style="color: #FFB800;"></i><i class="fas fa-star" style="color: #FFB800;"></i><i class="fas fa-star" style="color: #FFB800;"></i><i class="fas fa-star" style="color: #FFB800;"></i><i class="fas fa-star" style="color: #FFB800;"></i>
+                    <p style="margin-top: 16px;">“Удобная WMS, всегда на связи. Выручают в высокий сезон.”</p>
+                    <h4>— Алексей, поставщик на Ozon</h4>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-star" style="color: #FFB800;"></i><i class="fas fa-star" style="color: #FFB800;"></i><i class="fas fa-star" style="color: #FFB800;"></i><i class="fas fa-star" style="color: #FFB800;"></i><i class="fas fa-star" style="color: #FFB800;"></i>
+                    <p style="margin-top: 16px;">“Гибкие тарифы, прозрачная отчетность. Спасибо команде!”</p>
+                    <h4>— Екатерина, производитель товаров для дома</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Частые вопросы -->
+    <section id="faq" style="background: #F9FCFB;">
+        <div class="container">
+            <h2 class="section-title">Частые вопросы</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="service-card" style="margin-bottom: 16px;">
+                    <h3>Как происходит интеграция с моим магазином?</h3>
+                    <p>Мы подключаем API с вашей CRM или маркетплейсом. Выгрузка заказов автоматическая.</p>
+                </div>
+                <div class="service-card" style="margin-bottom: 16px;">
+                    <h3>Какие сроки хранения?</h3>
+                    <p>Гибкие условия: от 1 месяца без предоплаты, долгосрочные скидки.</p>
+                </div>
+                <div class="service-card" style="margin-bottom: 16px;">
+                    <h3>Есть ли минимальный объем заказа?</h3>
+                    <p>Работаем с любыми объемами — от стартапов до крупных поставщиков.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контактная форма -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-block">
+                <div class="contact-left">
+                    <h2 style="font-size: 32px; margin-bottom: 16px;">Всего один шаг до роста</h2>
+                    <p style="margin-bottom: 24px;">Увеличьте ваши доходы, сосредоточьтесь на продвижении вашего бренда, а всю рутину передайте нам</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Москва, ул. Логистическая 12</p>
+                    <p><i class="fas fa-phone-alt"></i> 8 (917) 520-61-41</p>
+                    <p><i class="fas fa-envelope"></i> info@isplogistic.ru</p>
+                </div>
+                <div class="contact-right">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Ваше имя *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Номер телефона *" required>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" id="consent" required>
+                            <label for="consent">Я принимаю условия обработки персональных данных</label>
+                        </div>
+                        <button type="submit" class="btn-white">Оставить заявку</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>© 2025 ISP LOGISTIC — Фулфилмент «под ключ» для маркетплейсов и интернет-магазинов.</p>
+        <p style="margin-top: 12px;">8 (917) 520-61-41 | info@isplogistic.ru</p>
+    </div>
+</footer>
+
+<!-- Floating Telegram Button -->
+<div class="telegram-float">
+    <a href="https://t.me/ISPLogistic_bot" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-telegram-plane"></i>
+        <span class="tooltip">Написать в Telegram</span>
+    </a>
+</div>
+
+<script>
+    // Функции для работы с модальными окнами
+    function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+        }
+    }
+
+    function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    }
+
+    // Закрытие модального окна при клике вне его
+    window.onclick = function(event) {
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach(modal => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        });
+    }
+
+    // Обработка формы
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Спасибо! Ваша заявка принята. Менеджер свяжется с вами в ближайшее время.');
+        this.reset();
+    });
+
+    // Плавный скролл для навигации
+    document.querySelectorAll('.nav a, .btn-primary, .service-link').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const hash = this.getAttribute('href');
+            if (hash && hash.startsWith('#') && hash !== '#') {
+                e.preventDefault();
+                const target = document.querySelector(hash);
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+</script>
+</body>
+</html>
